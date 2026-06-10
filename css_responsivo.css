@@ -1,0 +1,256 @@
+/* PORTFOLIO STYLESHEET - ARTHUR SANTOS LEITE
+   Baseado nas tendências de cores da Lummi AI (Burgundy, Terracotta, Smokey Teal e Copper)
+   Layout Totalmente Responsivo e Fluido
+*/
+
+:root {
+    /* Cores de Fundo e Texto Base */
+    --bg-primary: #fbf9f6;         /* Fundo neutro quente (creme/bege claro) */
+    --text-primary: #1c2826;       /* Grafite escuro para máxima legibilidade */
+    --text-secondary: #5c4d4a;     /* Tom terroso fosco para textos secundários */
+    
+    /* Tendência 1: Burgundy & Terracotta (Estabilidade e Sofisticação) */
+    --color-burgundy: #581c26;     /* Vinho rico e profundo */
+    --color-terracotta: #c96f53;   /* Terracota quente e orgânico */
+    
+    /* Tendência 2: Smokey Transformative Teal (Futurista e Versátil) */
+    --color-smokey-teal: #335c67;  /* Azul-esverdeado enigmático e calmo */
+    --color-copper: #d89065;       /* Realce sutil em tom de cobre */
+    
+    /* Variáveis de Estrutura */
+    --font-main: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --max-width: 850px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius-sm: 4px;
+}
+
+/* Reset de Margens e Box Model */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.7;
+    padding-top: 80px; /* Evita que o menu fixo cubra o conteúdo inicial */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   MELHORIA: Estilização e Centralização da Imagem
+   ========================================== */
+img {
+    display: block;
+    margin: 0 auto 2rem auto; /* Centraliza horizontalmente e adiciona margem inferior */
+    max-width: 100%;          /* Garante responsividade em telas menores */
+    height: auto;             /* Mantém a proporção da imagem */
+    border-radius: var(--border-radius-sm);
+}
+
+/* Barra de Navegação Fixa com efeito Glassmorphism (efeito vidro fosco) */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(251, 249, 246, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(51, 92, 103, 0.08);
+    z-index: 1000;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    box-shadow: 0 4px 20px rgba(88, 28, 38, 0.02);
+}
+
+/* Links do Menu */
+nav a {
+    text-decoration: none;
+    color: var(--color-smokey-teal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: var(--transition-smooth);
+    position: relative;
+    padding: 0.4rem 0.2rem;
+}
+
+/* Linha animada sob os links ao passar o mouse */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-terracotta);
+    transition: var(--transition-smooth);
+}
+
+nav a:hover {
+    color: var(--color-burgundy);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Seção de Introdução (Hero) */
+div[style*="height"] {
+    height: auto !important; /* Neutraliza os 1000px/300px fixos para não quebrar em telas menores */
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(88, 28, 38, 0.03) 0%, rgba(51, 92, 103, 0.03) 100%);
+    border-bottom: 1px dashed rgba(216, 144, 101, 0.25);
+    padding: 4rem 1.5rem;
+    margin-bottom: 4rem;
+}
+
+div[style*="height"] p {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--color-burgundy);
+    max-width: 650px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Controle de Largura Máxima das Seções */
+h2, p {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Estilização dos Títulos (H2) */
+h2 {
+    color: var(--color-burgundy);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 4.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+
+/* Linha decorativa embaixo dos títulos */
+h2::after {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    bottom: 0;
+    width: 45px;
+    height: 3.5px;
+    background-color: var(--color-terracotta);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Variação de cor para as seções baseadas em habilidades analíticas/futuras */
+#perfil, #experiencias {
+    color: var(--color-smokey-teal);
+}
+
+#perfil::after, #experiencias::after {
+    background-color: var(--color-copper);
+}
+
+/* Parágrafos de Conteúdo */
+p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Subtópicos internos (Executor, Crítico, etc.) */
+p strong {
+    color: var(--color-burgundy);
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.6rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Ajuste fino para o subtópico 'Crítico' combinar com o tom Smokey Teal */
+#perfil strong:nth-of-type(2) {
+    color: var(--color-smokey-teal);
+}
+
+/* Animação de entrada suave */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries - Responsividade para Celulares e Tablets */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px; /* Reduz ligeiramente a escala global */
+    }
+    
+    body {
+        padding-top: 110px; /* Espaço extra caso o menu quebre em duas linhas */
+    }
+    
+    nav {
+        padding: 1rem;
+        gap: 0.6rem;
+        flex-wrap: wrap; /* Links se reorganizam se a tela for muito pequena */
+    }
+    
+    nav a {
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        padding: 0.2rem;
+    }
+    
+    div[style*="height"] {
+        min-height: 35vh;
+        padding: 3rem 1rem;
+    }
+    
+    div[style*="height"] p {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    h2, p {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    
+    h2::after {
+        left: 1.2rem;
+    }
+}
